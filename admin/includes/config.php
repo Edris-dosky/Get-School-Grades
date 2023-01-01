@@ -7,7 +7,7 @@ class connection{
     }
 
     public function connection_database(){
-        $this->db = new mysqli('localhost' , 'root' ,'' , 'house');
+        $this->db = new mysqli('localhost' , 'root' ,'' , 'collage');
         if($this->db->connect_errno){
             exit("Error To connection database" . $this->db->connect_error);
         }
