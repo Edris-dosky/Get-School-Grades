@@ -2,10 +2,6 @@
 require_once('includes/nav.php');
 
 $data = User::get_all();
-
-while ($row = mysqli_fetch_assoc($data)){
-   echo $row['username'];
-}
-
-
+$sdata = User::get_by_id(1);
+echo $sdata->id ;
 ?>

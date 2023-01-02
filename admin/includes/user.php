@@ -3,20 +3,42 @@
 use User as GlobalUser;
 
 class User{
+    public $id;
+    public $username;
+    public $password;
 
     public static function get_all(){
        return self::query_proccess("SELECT * FROM `student` ");
     }
-    
-    public static function get_user_by_id($userid){
-        $single_user_data = self:: query_proccess("SELECT * FROM `user` WHERE `id` = '$userid'");
-        return !empty($single_user_data) ? array_shift($single_user_data) : false ;
+
+    public static function get_by_id($userid){
+        $single_data = self:: query_proccess("SELECT * FROM `student` WHERE `id` = '$userid'");
+        return !empty($single_data) ? array_shift($single_data) : false ;
     }
 
     public static function query_proccess($sql){
         global $db; 
-        $data = $db->query($sql);
-        return $data ;
+        $all_data = array();
+        $result = $db->query($sql);
+        while($row = mysqli_fetch_assoc($result)){
+            $all_data[] = self::instant($row);
+        }
+        return $all_data ;
+    }
+
+    public static function instant($columns){
+        $class = new self;
+        foreach ($columns as $property => $value) {
+            if($class->has_property($property)){
+                $class->$property = $value ;
+            }
+        }
+        return $class ;
+    }
+
+    private function has_property($property){
+        $class_propertys = get_object_vars($this);
+        return array_key_exists($property , $class_propertys);
     }
 }
 
