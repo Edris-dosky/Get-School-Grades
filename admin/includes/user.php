@@ -6,6 +6,7 @@ class User{
     public $id;
     public $username;
     public $password;
+    public $rule;
 
     public static function get_all(){
        return self::query_proccess("SELECT * FROM `student` ");
