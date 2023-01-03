@@ -29,17 +29,15 @@ class User{
     public static function instant($columns){
         $class = new self;
         foreach ($columns as $property => $value) {
-            if($class->has_property($property)){
+            if(array_key_exists($property,(get_object_vars(new self)))){
                 $class->$property = $value ;
+            }else{
+                echo "eeeeee pppp";
             }
         }
         return $class ;
     }
 
-    private function has_property($property){
-        $class_propertys = get_object_vars($this);
-        return array_key_exists($property , $class_propertys);
-    }
 }
 
 $user = new User();
