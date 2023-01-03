@@ -31,8 +31,6 @@ class User{
         foreach ($columns as $property => $value) {
             if(array_key_exists($property,(get_object_vars(new self)))){
                 $class->$property = $value ;
-            }else{
-                echo "eeeeee pppp";
             }
         }
         return $class ;
