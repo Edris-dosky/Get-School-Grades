@@ -1,8 +1,8 @@
 <?php
 class Session{
-    public $id ;
-    public $rule ;
-    private $logged_in = false ;
+    public $id;
+    public $rule;
+    private $logged_in = false;
 
     public function __construct()
     {

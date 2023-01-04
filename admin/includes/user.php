@@ -3,6 +3,7 @@
 use User as GlobalUser;
 
 class User{
+
     public $id;
     public $username;
     public $password;
@@ -25,7 +26,7 @@ class User{
             $all_data[] = self::instant($row);
         }
         return $all_data ;
-    }
+    }   
 
     public static function instant($columns){
         $class = new self;
@@ -35,6 +36,12 @@ class User{
             }
         }
         return $class ;
+    }
+
+    public static function verify($username , $password){
+        $password = hash('gost',$password);
+        $result = self::query_proccess("SELECT * FROM `student` WHERE `username` = '$username' AND `password` = '$password'");
+        return !empty($result) ? array_shift($result) : false ;
     }
 
 }
