@@ -6,8 +6,6 @@ echo $sdata->id;
 echo "EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE";
 ?>
 
-
-<h1>edrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrr</h1>
     
 </body>
 </html>

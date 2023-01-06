@@ -5,7 +5,11 @@ module.exports = {
     fontFamily: {
       'display' : ["rudaw"],
     },
-    extend: {},
+    extend: {
+      colors: {
+        'black-rgba': 'rgba(0, 0, 0, 0.19)',
+      },
+    },
   },
   plugins: [],
 }

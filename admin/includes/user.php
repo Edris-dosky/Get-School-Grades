@@ -44,6 +44,10 @@ class User{
         return !empty($result) ? array_shift($result) : false ;
     }
 
+    public static function create(){
+        
+    }
+
 }
 
 $user = new User();
