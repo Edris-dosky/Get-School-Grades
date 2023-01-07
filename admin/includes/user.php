@@ -53,12 +53,25 @@ class User{
         $execute = $db->query("INSERT INTO `student` (`username`, `password`, `rule`) VALUES ('$username', '$password', '$rule')");
         if($execute){
             return true ;
-
         }else{
             return false;
         }
-
     }
+
+    public function update(){
+        global $db ;
+        $id = $db->secure($this->id);
+        $username = $db->secure($this->username);
+        $password = $db->secure($this->password);
+        $rule = $db->secure($this->rule);
+        $execute =$db->query("UPDATE `student` SET `username` = '$username' , `password` = '$password', `rule`='$rule' WHERE `id` = '$id'");
+        if($execute){
+            return true ;
+        }else{
+            return false;
+        }
+    }
+
 
 }
 

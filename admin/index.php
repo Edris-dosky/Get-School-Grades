@@ -1,8 +1,9 @@
 <?php require_once('includes/nav.php'); ?>
 <?php
-$user->username = "qaraman";
-$user->password = hash('gost' , "1234");
-$user->rule = "2" ;
+$b = user::get_by_id(3);
+$b->username = "karwan";
+$b->update();
+
 ?>
 
     
