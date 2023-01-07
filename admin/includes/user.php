@@ -44,8 +44,20 @@ class User{
         return !empty($result) ? array_shift($result) : false ;
     }
 
-    public static function create(){
-        
+    public function create(){
+        global $db ;
+        $username = $db->secure($this->username);
+        $password = $db->secure($this->password);
+        $rule = $db->secure($this->rule);
+
+        $execute = $db->query("INSERT INTO `student` (`username`, `password`, `rule`) VALUES ('$username', '$password', '$rule')");
+        if($execute){
+            return true ;
+
+        }else{
+            return false;
+        }
+
     }
 
 }
