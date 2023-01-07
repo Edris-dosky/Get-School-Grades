@@ -3,18 +3,19 @@
 use User as GlobalUser;
 
 class User{
-
+    protected static $table = "`student`";
+    protected static $columns = array('username','password','rule');
     public $id;
     public $username;
     public $password;
     public $rule;
 
     public static function get_all(){
-       return self::query_proccess("SELECT * FROM `student` ");
+       return self::query_proccess("SELECT * FROM ".self::$table." ");
     }
 
     public static function get_by_id($userid){
-        $single_data = self:: query_proccess("SELECT * FROM `student` WHERE `id` = '$userid'");
+        $single_data = self:: query_proccess("SELECT * FROM ".self::$table." WHERE `id` = '$userid'");
         return !empty($single_data) ? array_shift($single_data) : false ;
     }
 
@@ -40,22 +41,22 @@ class User{
 
     public static function verify($username , $password){
         $password = hash('gost',$password);
-        $result = self::query_proccess("SELECT * FROM `student` WHERE `username` = '$username' AND `password` = '$password'");
+        $result = self::query_proccess("SELECT * FROM ".self::$table." WHERE `username` = '$username' AND `password` = '$password'");
         return !empty($result) ? array_shift($result) : false ;
+    }
+    public function properties(){
+        $pro = get_object_vars($this);
+        $array =array();
+        foreach(self::$columns as $column){
+            $array[$column] = "'".$column."'";
+        }
+        return $array;
     }
 
     public function create(){
         global $db ;
-        $username = $db->secure($this->username);
-        $password = $db->secure($this->password);
-        $rule = $db->secure($this->rule);
-
-        $execute = $db->query("INSERT INTO `student` (`username`, `password`, `rule`) VALUES ('$username', '$password', '$rule')");
-        if($execute){
-            return true ;
-        }else{
-            return false;
-        }
+        $pro = $this->properties();
+        $db->query("INSERT INTO ".self::$table." (".implode(",",array_keys($pro)).") VALUES (".implode(",",array_values($pro)).")");
     }
 
     public function update(){
@@ -64,7 +65,7 @@ class User{
         $username = $db->secure($this->username);
         $password = $db->secure($this->password);
         $rule = $db->secure($this->rule);
-        $execute =$db->query("UPDATE `student` SET `username` = '$username' , `password` = '$password', `rule`='$rule' WHERE `id` = '$id'");
+        $execute =$db->query("UPDATE ".self::$table." SET `username` = '$username' , `password` = '$password', `rule`='$rule' WHERE `id` = '$id'");
         if($execute){
             return true ;
         }else{
@@ -75,7 +76,7 @@ class User{
     public function delete(){
         global $db ;
         $id = $db->secure($this->id);
-        $execute = $db->query("DELETE FROM `student` WHERE `id` = $id");
+        $execute = $db->query("DELETE FROM ".self::$table." WHERE `id` = $id");
     }
 
 }
