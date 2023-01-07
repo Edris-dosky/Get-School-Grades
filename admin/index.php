@@ -1,10 +1,10 @@
 <?php require_once('includes/nav.php'); ?>
 <?php
 
-$user->username = "karwan";
-$user->password = "klkkkkkk";
-$user->rule = "2";
-$user->create();
+$ed = user::get_by_id(3);
+
+$ed->username = "karwan";
+$ed->update();
 
 ?>
 

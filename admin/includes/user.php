@@ -1,5 +1,6 @@
 <?php
 
+use Random\Engine\Secure;
 use User as GlobalUser;
 
 class User{
@@ -45,10 +46,11 @@ class User{
         return !empty($result) ? array_shift($result) : false ;
     }
     public function properties(){
-        $pro = get_object_vars($this);
         $array =array();
         foreach(self::$columns as $column){
-            $array[$column] = "'".$column."'";
+            if(property_exists($this , $column)){
+                $array[$column] = "'".$this->$column."'";
+            }
         }
         return $array;
     }
@@ -61,16 +63,14 @@ class User{
 
     public function update(){
         global $db ;
+        $array = array();
+        $pro = $this->properties();
         $id = $db->secure($this->id);
-        $username = $db->secure($this->username);
-        $password = $db->secure($this->password);
-        $rule = $db->secure($this->rule);
-        $execute =$db->query("UPDATE ".self::$table." SET `username` = '$username' , `password` = '$password', `rule`='$rule' WHERE `id` = '$id'");
-        if($execute){
-            return true ;
-        }else{
-            return false;
+        foreach ($pro as $key => $value) {
+            $array[] = "`{$key}` = {$value}";
         }
+         $db->query("UPDATE ".self::$table." SET ".implode(",",$array)." WHERE `id` = '$id' ");
+        
     }
     
     public function delete(){
