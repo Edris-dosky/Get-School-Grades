@@ -71,7 +71,12 @@ class User{
             return false;
         }
     }
-
+    
+    public function delete(){
+        global $db ;
+        $id = $db->secure($this->id);
+        $execute = $db->query("DELETE FROM `student` WHERE `id` = $id");
+    }
 
 }
 
