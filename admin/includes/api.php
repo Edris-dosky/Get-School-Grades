@@ -3,8 +3,12 @@ class Api{
 
     protected static $table = "`student`";
 
-    public static function get_all(){
-        return static::query_proccess("SELECT * FROM ".static::$table." ");
+    public static function get_all($con){
+        if($con === 0){
+            return static::query_proccess("SELECT * FROM ".static::$table." ");
+        }else{
+            return static::query_proccess("SELECT * FROM ".static::$table." WHERE $con ");
+        }
      }
  
      public static function get_by_id($userid){
