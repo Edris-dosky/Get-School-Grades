@@ -47,9 +47,10 @@ class User{
     }
     public function properties(){
         $array =array();
+        global $db ;
         foreach(self::$columns as $column){
             if(property_exists($this , $column)){
-                $array[$column] = "'".$this->$column."'";
+                $array[$column] = "'".$db->secure($this->$column)."'";
             }
         }
         return $array;
