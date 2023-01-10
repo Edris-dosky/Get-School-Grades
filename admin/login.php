@@ -1,13 +1,5 @@
+<?php require_once('includes/nav.php'); ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="stylesheet" href="/admin/assets/css/output.css">
-    <title>Document</title>
-</head>
-<body class="font-display">
 <form method="POST" action="<?php echo $_SERVER['PHP.SELF']; ?>" class="bg-gradient-to-r from-cyan-500 to-blue-500 w-full h-screen flex flex-col justify-center items-center">
     <div class=" flex flex-col justify-center items-center backdrop-blur-sm bg-black-rgba rounded-xl px-10 py-20 lg:px-24 lg:py-40">
         <p class="text-xl md:text-2xl lg:text-3xl lg:mb-18 ">فۆرمی داخلبوون</p>
