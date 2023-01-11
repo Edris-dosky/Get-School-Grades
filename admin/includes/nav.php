@@ -15,10 +15,10 @@ require_once('init.php');
 
 <nav class=" bg-slate-500 w-full h-14 ">
 <div class="container mx-auto flex justify-between items-center h-full">
-  <div class="flex justify-between items-center w-18">
+  <a href="" class="flex justify-between items-center w-36">
     <div class=""><p>A+</p></div>
-    <div class="">LOGO</div>
-  </div>
+    <img src="/admin/assets/img/logo.jpg" alt="" class="h-12 w-12 object-cover ">
+  </a>
 <ul class="flex justify-around items-center w-2/3 flex-row-reverse ">
   <li>
     <a href="">سەرەتا</a>
@@ -39,3 +39,4 @@ require_once('init.php');
 </ul>
 </div>
 </nav>
+<img  alt="">
