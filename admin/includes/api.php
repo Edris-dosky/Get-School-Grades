@@ -71,5 +71,5 @@ class Api{
     }
 
 }
-
+$api = new Api;
 ?>
