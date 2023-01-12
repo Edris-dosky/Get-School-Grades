@@ -25,6 +25,7 @@ class Api{
          }
          return $all_data ;
      }   
+     
      public static function instant($columns){
         $class = new static;
         foreach ($columns as $property => $value) {
