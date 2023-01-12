@@ -17,10 +17,10 @@ require_once('init.php');
 <nav class=" bg-blue-500 w-full h-14 ">
 <div class="container mx-auto flex justify-between items-center h-full flex-row-reverse">
   <a href="" class="flex justify-around items-center w-36">
-    <p class="text-center px-4 pb-1.5 pt-2 bg-orange-500 text-xl rounded-full shadow-2xl">قوتابخانە </p>
+    <p class="text-center px-4 pb-1.5 pt-2 bg-orange-500 text-xl rounded-full shadow-2xl opacity-0 md:opacity-100">قوتابخانە </p>
   </a>
 
-<ul class="flex justify-around items-center w-2/3 flex-row-reverse ">
+<ul class="opacity-0 md:opacity-100 flex justify-around items-center w-2/3 flex-row-reverse ">
   <li>
     <a href="" class="link-nav">سەرەتا</a>
   </li>
