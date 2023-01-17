@@ -12,8 +12,8 @@ require_once('init.php');
     <link href="/your-path-to-fontawesome/css/fontawesome.css" rel="stylesheet">
     <title>A+</title>
 </head>
-<body class="font-display bg-zinc-100">
-
+<body class="font-display bg-zinc-100 w-full h-screen">
+<?php if ($session->get_logged_in()){ ?>
 <nav class=" bg-blue-500 w-full h-14 ">
 <div class="container mx-auto flex justify-between items-center h-full flex-row-reverse">
   <a href="" class="flex justify-around items-center w-36">
@@ -34,9 +34,10 @@ require_once('init.php');
     <a href="" class="link-nav">هەژمار</a>
   </li>
   <li>
-    <a href="C:\xampp\htdocs\Get-School-Grades\admin\login.php" class="link-nav">دەربارە</a>
+    <a href="Get-School-Grades\admin\login.php" class="link-nav">دەربارە</a>
   </li>
 </ul>
 <button type="submit" class="bg-red-400 px-4 py-1.5 text-center rounded-xl active:translate-y-1 hover:bg-red-500">چونەدەر</button>
 </div>
 </nav>
+<?php } ?>
