@@ -37,7 +37,7 @@ require_once('init.php');
     <a href="Get-School-Grades\admin\login.php" class="link-nav">دەربارە</a>
   </li>
 </ul>
-<button type="submit" class="bg-red-400 px-4 py-1.5 text-center rounded-xl active:translate-y-1 hover:bg-red-500">چونەدەر</button>
+<a href="?logout" class="bg-red-400 px-4 py-1.5 text-center rounded-xl active:translate-y-1 hover:bg-red-500">چونەدەر</a>
 </div>
 </nav>
 <?php } ?>

@@ -20,7 +20,7 @@ class Session{
         $this->logged_in = true ;
     }
 
-    public function log_out(){
+    public function logout(){
         unset($this->id);
         unset($this->rule);
         unset($_SESSION['id']);

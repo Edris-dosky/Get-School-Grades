@@ -19,4 +19,9 @@ function in($i){
     }
 
 }
+
+if(isset($_GET['logout'])){
+    $session->logout();
+    go("index.php");
+}
 ?>
