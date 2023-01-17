@@ -1,4 +1,4 @@
-<?php require_once('includes/nav.php'); ?>
+<?php require_once('includes/nav.php'); in(1); ?>
 <?php
 if (isset($_POST['submit'])){
 $username = $db->secure($_POST['username']);
