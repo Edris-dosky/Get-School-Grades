@@ -1,22 +1,4 @@
-<?php require_once('includes/nav.php'); in(1); ?>
-<?php
-$error = ['result' => ''];
-if (isset($_POST['submit'])){
-$username = $db->secure($_POST['username']);
-$pass = $db->secure($_POST['pass']);
-if (empty($username) || empty($pass)){
-    $error['result'] = "تکایە خانەکان پربکەوە";
-}else{
-    $check = User::verify($username , $pass);
-    if ($check){
-        $session->loggin($check);
-        go("home.php");
-    }else{
-        $error['result'] = "پاسۆرد یان ئیمەیل هەڵەیە";
-    }
-}
-}
-?>
+<?php require_once('includes/login.php') ?>
 
 <form method="POST" action="" class="bg-gradient-to-r from-cyan-500 to-blue-500 w-full h-screen flex flex-col justify-center items-center">
     <div class=" flex flex-col justify-center items-center backdrop-blur-sm bg-black-rgba rounded-xl px-10 py-20 lg:px-24 lg:py-40">
