@@ -8,7 +8,9 @@ module.exports = {
     extend: {
       colors: {
         'black-rgba': 'rgba(0, 0, 0, 0.19)',
+        'bg-footer': 'rgb(0,0,0)',
       },
+
     },
   },
   plugins: [],
