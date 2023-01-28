@@ -1,6 +1,6 @@
 
-<div class="flex flex-col justify-center items-center bg-black-rgba p-8">
-    <h3 class="">
+<div class="flex flex-col justify-center items-center bg-black text-white p-8">
+    <h3 class="font-medium">
         Edris Dosky 
     </h3>
     <p>
