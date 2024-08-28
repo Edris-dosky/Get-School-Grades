@@ -9,7 +9,7 @@ class User extends Api{
     public $username;
     public $password;
     public $rule;
-    protected static $columns = array('username','password','rule');
+    protected static $columns = array('id','username','password','rule');
    
     public static function verify($username , $password){
         $password = hash('gost',$password);
